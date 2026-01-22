@@ -151,6 +151,7 @@ const techStackIcons = [
     scale: 0.05,
     rotation: [0, -Math.PI / 4, 0],
   },
+  
 ];
 
 const expCards = [
