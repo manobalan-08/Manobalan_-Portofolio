@@ -1,0 +1,14 @@
+services:
+  - type: static
+    name: 3d-portfolio
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+    routes:
+      - path: /
+        destination: /index.html
+      - path: /*
+        destination: /index.html
+    autoDeploy: true
