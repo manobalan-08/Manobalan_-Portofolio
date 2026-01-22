@@ -3,7 +3,25 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(),
-      tailwindcss(),
+  plugins: [
+    react(),
+    tailwindcss(),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'three': ['three'],
+          'react-three': ['@react-three/fiber', '@react-three/drei', '@react-three/postprocessing'],
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000,
+    commonjsOptions: {
+      transformMixedEsm: true,
+    }
+  },
+  optimizeDeps: {
+    include: ['three', '@react-three/fiber', '@react-three/drei', '@react-three/postprocessing'],
+  }
 })
