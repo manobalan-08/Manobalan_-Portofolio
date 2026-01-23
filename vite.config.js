@@ -7,6 +7,12 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  preview: {
+    host: "0.0.0.0",
+    allowedHosts: [
+      "manobalan-portofolio-6.onrender.com"
+    ]
+  },
   build: {
     rollupOptions: {
       output: {
